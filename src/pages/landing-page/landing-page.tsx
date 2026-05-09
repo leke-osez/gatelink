@@ -8,6 +8,8 @@ import { cn } from '#/utils/style'
 import { useState, type ReactNode } from 'react'
 import OnboardingForm from './onboarding-form'
 import { supabase } from '#/utils/supabase-client'
+import bannerPic from '#/assets/png/banner-pic.png'
+import Image from '#/ui/components/image'
 
 const LandingPage = () => {
   const visible = useHideOnScroll({ showAfter: 80 });
@@ -101,7 +103,7 @@ const Banner = ({ openOnboard}:{  openOnboard: () => void}) =>{
     return  <div className='w-full flex flex-col '>
 
 
-    <div className="flex flex-col lg:flex-row w-full p-3 sm:p-5 sm:px-10 md:px-16">
+    <div className="flex flex-col lg:flex-row gap-8 md:gap-12 w-full p-3 sm:p-5 sm:px-10 md:px-16">
         <section className = 'relative flex flex-col gap-4  items-start max-w-150 w-full '>
           <div className='relative w-full min-h-20 h-fit flex items-center mb-2'>
           <SwitchingText texts={["Manage", "Simplify", "Centralize"]} className = 'relative w-full max-w-125 font-bold -rotate-2 -mt-4  h-fit' textClassName='flex justify-center w-full text-2xl bg-foreground/90 border-4 text-3xl sm:text-4xl md:text-7xl p-4 rounded-md border-white p-2 text-white shadow-[10px_10px_0_rgba(0,0,0,0)] shadow-slate-900'/>
@@ -118,12 +120,15 @@ const Banner = ({ openOnboard}:{  openOnboard: () => void}) =>{
 
           </div>
         </section>
-        <section className='flex-1 mt-9 lg:mt-0'>
+        <section className='flex-1  mt-9 md:mt-0'>
             <div className='flex justify-between flex-wrap gap-5'>
-              <Tag className='text-sm -rotate-2 shadow-[4px_4px_0_rgba(0,0,0,0)] shadow-slate-900 wrap'>Built for communities ❤️</Tag>
+              <Tag className=' -sm -rotate-2 shadow-[4px_4px_0_rgba(0,0,0,0)] shadow-slate-900 wrap'>Built for communities ❤️</Tag>
              <Tag className='text-sm rotate-3 shadow-[4px_4px_0_rgba(0,0,0,0)] shadow-slate-900'>Automate your membership payments 🤖</Tag>
             </div>
-            
+            <div className='flex-1 aspect-square md:aspect-[4/3] object-container! mt-10' >
+
+            <Image src={bannerPic}/>
+            </div>
         </section>
       </div>
       <div className='flex justify-center flex-wrap gap-3 mt-10 text-sm md:text-base bg-black/90 text-white px-3 md:px-8 py-2'>
